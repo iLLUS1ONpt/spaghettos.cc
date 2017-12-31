@@ -88,6 +88,9 @@ void CAnimations::UpdateAnimationState( CCSGOPlayerAnimState* state, QAngle ang 
 
 void CAnimations::ResetAnimationState( CCSGOPlayerAnimState* state )
 {
+	if(!state)
+		return;
+	
 	using ResetAnimState_t = void( __thiscall* )( CCSGOPlayerAnimState* );
 
 	static auto ResetAnimState = ( ResetAnimState_t ) U::FindSig( "client.dll", "56 6A 01 68 ? ? ? ? 8B F1" );
